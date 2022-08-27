@@ -32,7 +32,7 @@ function animShow() {
 }
 
 function animScroll() {
-    const windowTop = window.pageYOffset + ((window.innerHeight * 0.75));
+    const windowTop = window.pageYOffset + ((window.innerHeight * 3/4));
     target.forEach(function (element) {
         if (windowTop > element.offsetTop) {
             element.classList.add(animClass);
@@ -40,10 +40,10 @@ function animScroll() {
     })
 }
 
-window.addEventListener('load', debounce(function() {
-    animShow();
-}, 200));
+window.addEventListener('load', function() {
+    setTimeout(animShow(), 0);
+});
 
-window.addEventListener('scroll', debounce(function() {
-    animScroll();
-}, 200));
+window.addEventListener('scroll', function() {
+    setTimeout(animScroll(), 0);
+});
